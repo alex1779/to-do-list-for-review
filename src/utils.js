@@ -6,20 +6,20 @@ class Task {
   }
 }
 
-  const restoreOriginalIcons = () => {
+const restoreOriginalIcons = () => {
   const iconDiv = document.querySelectorAll('.icon');
   iconDiv.forEach((icon) => {
     icon.innerHTML = '&#8942';
     icon.style.cursor = 'all-scroll';
   });
-}
+};
 
 const restoreBackgroundWhite = () => {
   const labelTasks = document.querySelectorAll('li');
   labelTasks.forEach((label) => {
     label.style['background-color'] = '#fff';
   });
-}
+};
 
 const scrapeAndSave = () => {
   const tasksArray = [];
@@ -32,7 +32,7 @@ const scrapeAndSave = () => {
   });
   localStorage.removeItem('tasksList');
   localStorage.setItem('tasksList', JSON.stringify(tasksArray));
-}
+};
 
 function setValueTextArea(textArea, labelTask) {
   labelTask.innerHTML = textArea.value;
@@ -52,7 +52,7 @@ const setValueTextAreaAlls = () => {
       setValueTextArea(textArea, labelTask);
     }
   });
-}
+};
 
 export function addEventclearAllButton() {
   const buttonClearAll = document.querySelector('.clearAll');
