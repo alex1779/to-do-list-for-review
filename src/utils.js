@@ -6,7 +6,7 @@ class Task {
   }
 }
 
-function restoreOriginalIcons() {
+  const restoreOriginalIcons = () => {
   const iconDiv = document.querySelectorAll('.icon');
   iconDiv.forEach((icon) => {
     icon.innerHTML = '&#8942';
@@ -14,14 +14,14 @@ function restoreOriginalIcons() {
   });
 }
 
-function restoreBackgroundWhite() {
+const restoreBackgroundWhite = () => {
   const labelTasks = document.querySelectorAll('li');
   labelTasks.forEach((label) => {
     label.style['background-color'] = '#fff';
   });
 }
 
-function scrapeAndSave() {
+const scrapeAndSave = () => {
   const tasksArray = [];
   const tasks = document.querySelectorAll('.task');
   tasks.forEach((label, index) => {
@@ -38,15 +38,12 @@ function setValueTextArea(textArea, labelTask) {
   labelTask.innerHTML = textArea.value;
   textArea.style.display = 'none';
   labelTask.style.display = 'block';
-  // restore original icons
   restoreOriginalIcons();
-  // change background to white
   restoreBackgroundWhite();
-  // Save to local storage
   scrapeAndSave();
 }
 
-function setValueTextAreaAlls() {
+const setValueTextAreaAlls = () => {
   const textAreas = document.querySelectorAll('.textArea');
   textAreas.forEach((textArea) => {
     const parentDivTaskCont = textArea.parentNode;
@@ -90,9 +87,7 @@ export function manageBoxes(checkboxElem) {
     textArea.style.display = 'none';
     const labelText = parentDiv.querySelector('.task');
     labelText.style.display = 'block';
-    // restore original icons
     restoreOriginalIcons();
-    // change background to white
     restoreBackgroundWhite();
   }
   scrapeAndSave();
